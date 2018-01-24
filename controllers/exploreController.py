@@ -13,7 +13,7 @@ class ExploreController:
         while True:
             choices = ["Return to town", "Battle"]
 
-            choice = showOptions(choices)
+            choice = showOptions("What do you do?", choices)
 
             try:
                 value = int(choice)

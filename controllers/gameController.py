@@ -2,7 +2,6 @@ from utils import *
 from character import Character
 from controllers.campController import CampController
 from controllers.exploreController import ExploreController
-import zope.event
 
 class GameController:
     def __init__(self):
@@ -21,7 +20,7 @@ class GameController:
                 value = int(choice)
                 if (value == 0): # go explore
                     clear()
-                    exploreController = ExploreController(self.timeOfDay, self.hero)
+                    exploreController = ExploreController(self.timeOfDay, self.character)
                     exploreController.explore()
                     continue
                 elif (value == 1): # Go to camp

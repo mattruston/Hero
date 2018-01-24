@@ -11,7 +11,7 @@ class BattleEventController:
         while True:
             choices = ["Run", "Attack"]
 
-            choice = showOptions(choices)
+            choice = showOptions("What do you do?", choices)
 
             try:
                 value = int(choice)
