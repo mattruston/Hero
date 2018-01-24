@@ -17,7 +17,6 @@ def getopts(argv):
     return opts
 
 if __name__ == "__main__":
-    args = getopts(argv)
-    if ("-sp" in args):
-        utils.speedRunMode = True
+    if ("-sp" in argv):
+        speedRunMode = True
     main()

@@ -25,6 +25,7 @@ class GameController:
                     continue
             except:
                 pass
+
             # Special commands
             if choice == "quit" or choice == "q":
                 clear()
@@ -34,4 +35,4 @@ class GameController:
                 display("\nHero's Diary:\n-------------\nTaking an action:\n\tYou can input a choice by submitting the correct action number\nExiting the game:\n\tYou can quit the game at anytime by typing 'quit' or 'q'\n")
             else:
                 write("That is not an action.")
-                continue
+                

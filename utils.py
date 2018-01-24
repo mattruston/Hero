@@ -34,15 +34,6 @@ def showOptions(choices) -> int:
     choice = input("> ")
     sleep(0.3)
     return choice
-        # try:
-        #     value = int(choice)
-        #     if (value >= 0 and value < len(choices)):
-        #         return value
-        # except:
-        #     pass
-
-        # display("Invalid command") 
-
 
 def display(string):
     sys.stdout.write(string)
