@@ -25,8 +25,8 @@ def write(string):
     print("")
 
 
-def showOptions(choices) -> int:
-    write("What do you do?")
+def showOptions(intro, choices) -> int:
+    write(intro)
 
     for x in range(len(choices)):
         display(str(x) + ". " + choices[x])
@@ -40,3 +40,13 @@ def display(string):
     sys.stdout.flush()
     sleep(0.5)
     print("")
+
+def specialCommands(inpt):
+    if inpt == "quit" or inpt == "q":
+        clear()
+        display("The darkness engulfs your fire and the world around you fades to black.")
+        return -1
+    elif inpt == "help" or inpt == "h":
+        display("\nHero's Diary:\n-------------\nTaking an action:\n\tYou can input a choice by submitting the correct action number\nExiting the game:\n\tYou can quit the game at anytime by typing 'quit' or 'q'\n")
+    else:
+        write("That is not an action.")

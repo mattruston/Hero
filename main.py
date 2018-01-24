@@ -1,6 +1,6 @@
 from sys import argv
 import utils
-from gameController import GameController
+from controllers.gameController import GameController
 
 def main():
     utils.clear() # clear the terminal to a fresh state

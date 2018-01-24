@@ -1,5 +1,5 @@
-from weapon import Weapon
-from armor import Armor
+from weapons.weapon import Weapon
+from armor.armor import Armor
 
 class Character:
     def __init__(self, name, hp, strength, weapon = Weapon(), armor = Armor(), bonuses = [], inventory = [], statuses = []):
@@ -19,6 +19,9 @@ class Character:
 
     def takeDamage(self, damage):
         self.health -= damage
+
+    def heal(self, health):
+        self.health += health
 
     def defend(self, damage):
         return self.armor.defend()
