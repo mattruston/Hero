@@ -1,10 +1,11 @@
-class Weapon:
-    def __init__(self):
-        pass
+from utils import *
+import character
 
+class Weapon:
     def attack(self, attacker, target):
         #base sword
         damage = attacker.strength + 1
-        damage = target.armor.defend()
+        damage = target.defend(damage)
+        damage = 1
+        display(attacker.name + " slices " + target.name + " for " + str(damage) + " damage!")
         target.takeDamage(damage)
-        display(attacker.name + " slices " + target.name + " for " + damage + " damage!")
