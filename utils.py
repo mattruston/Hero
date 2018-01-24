@@ -3,7 +3,7 @@ import time
 import sys
 
 global speedRunMode
-speedRunMode = True
+speedRunMode = False
 
 def sleep(t):
     if (not speedRunMode):
