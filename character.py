@@ -1,3 +1,4 @@
+from utils import *
 from weapons.weapon import Weapon
 from armor.armor import Armor
 
@@ -19,9 +20,13 @@ class Character:
 
     def takeDamage(self, damage):
         self.health -= damage
+        write(self.name + " has " + str(self.health) + "hp")
 
     def heal(self, health):
         self.health += health
 
     def defend(self, damage):
-        return self.armor.defend()
+        return self.armor.defend(damage)
+
+    def attack(self, target):
+        self.weapon.attack(self, target)
