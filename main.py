@@ -2,8 +2,6 @@ from sys import argv
 from utils import *
 from gameController import GameController
 
-speedRunMode = False
-
 def main():
     clear() # clear the terminal to a fresh state
     write("You awaken next to your fire. The flames dance in the encroaching darkness. You pick up your sword.")
@@ -21,5 +19,5 @@ def getopts(argv):
 if __name__ == "__main__":
     args = getopts(argv)
     if ("-sp" in args):
-        speedRunMode = True
+        utils.speedRunMode = True
     main()

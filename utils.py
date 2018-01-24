@@ -1,18 +1,20 @@
 import os
 import time
 import sys
-import main
+
+global speedRunMode
+speedRunMode = True
 
 def sleep(t):
-    time.sleep(t)
+    if (not speedRunMode):
+        time.sleep(t)
 
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def write(string):
     for c in string:
-        if (not main.speedRunMode):
-            sleep(0.05)
+        sleep(0.05)
         sys.stdout.write(c)
         sys.stdout.flush()
 
