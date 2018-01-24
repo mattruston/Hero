@@ -1,10 +1,10 @@
 from sys import argv
-from utils import *
+import utils
 from gameController import GameController
 
 def main():
-    clear() # clear the terminal to a fresh state
-    write("You awaken next to your fire. The flames dance in the encroaching darkness. You pick up your sword.")
+    utils.clear() # clear the terminal to a fresh state
+    utils.write("You awaken next to your fire. The flames dance in the encroaching darkness. You pick up your sword.")
     gameController = GameController()
     gameController.playGame()
 
