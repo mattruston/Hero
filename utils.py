@@ -57,7 +57,7 @@ def characterInfo(character):
 def specialCommands(inpt):
     if inpt == "quit" or inpt == "q":
         clear()
-        display("The darkness engulfs your fire and the world around you fades to black.")
+        print("The darkness engulfs your fire and the world around you fades to black.")
         kill()
     elif inpt == "help" or inpt == "h":
         display("\nHero's Diary:\n-------------\nTaking an action:\n\tYou can input a choice by submitting the correct action number\nExiting the game:\n\tYou can quit the game at anytime by typing 'quit' or 'q'\n")
