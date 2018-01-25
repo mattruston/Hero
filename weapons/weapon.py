@@ -2,6 +2,9 @@ from utils import *
 import character
 
 class Weapon:
+    def __init__(self, name):
+        self.name = name
+        
     def attack(self, attacker, target):
         #base sword
         damage = attacker.strength + 1

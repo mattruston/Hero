@@ -2,12 +2,11 @@ from utils import *
 from npcs.npc import NPC
 
 class CampController:
-    def __init__(self, character, people = []):
-        self.character = character
+    def __init__(self, people = []):
         self.people = people
         self.addPerson(NPC('Old Man', 'Talk to the old man'))
 
-    def showCamp(self):
+    def showCamp(self, character):
         while True:
             if (len(self.people) == 0):
                 write("There is no one here yet.")
@@ -16,26 +15,23 @@ class CampController:
             options = [x.option for x in self.people] + ["Go to your tent."]
 
             choice = showOptions("What do you do?", options)
-            try:
-                value = int(choice)
-                if (value >= 0 and value < len(self.people)):
-                    self.people[value].run() # Run the persons interaction
+            if (choice.isdigit()):
+                choice = int(choice)
+                if (choice >= 0 and choice < len(self.people)):
+                    self.people[choice].run(character) # Run the persons interaction
                     continue
-                elif (value == len(self.people)):
-                    self.tent()
+                elif (choice == len(self.people)):
+                    self.tent(character)
                     continue
-            except:
-                pass
             
             # handle special commands
             flag = specialCommands(choice)
-            if flag == -1:
-                break
 
     def addPerson(self, person):
         self.people.append(person)
 
-    def tent(self):
-        health = int(self.character.health*.25)
+    def tent(self, character):
+        clear()
+        health = int(character.health*.25)
         write("You have a good nights rest and heal for " + str(health))
-        self.character.heal(health)
+        character.heal(health)
