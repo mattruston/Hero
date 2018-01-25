@@ -11,10 +11,10 @@ class NPC:
             choice = showOptions("What do you do?", options)
             try:
                 value = int(choice)
-                if (value == 0):
+                if (value == 1):
                     write(self.name + ": Hello there stranger.")
                     continue
-                elif (value == 1):
+                elif (value == 2):
                     clear()
                     return
             except:

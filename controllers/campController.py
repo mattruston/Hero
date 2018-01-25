@@ -17,7 +17,7 @@ class CampController:
 
             choice = showOptions("What do you do?", options)
             try:
-                value = int(choice)
+                value = int(choice) - 1
                 if (value >= 0 and value < len(self.people)):
                     self.people[value].run() # Run the persons interaction
                     continue

@@ -29,7 +29,7 @@ def showOptions(intro, choices) -> int:
     write(intro)
 
     for x in range(len(choices)):
-        display(str(x) + ". " + choices[x])
+        display(str(x + 1) + ". " + choices[x])
 
     choice = input("> ")
     sleep(0.3)

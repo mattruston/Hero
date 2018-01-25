@@ -18,12 +18,12 @@ class GameController:
             choice = showOptions("What do you do?", choices)
             try:
                 value = int(choice)
-                if (value == 0): # go explore
+                if (value == 1): # go explore
                     clear()
                     exploreController = ExploreController(self.timeOfDay, self.character)
                     exploreController.explore()
                     continue
-                elif (value == 1): # Go to camp
+                elif (value == 2): # Go to camp
                     clear()
                     self.camp.showCamp()
                     continue

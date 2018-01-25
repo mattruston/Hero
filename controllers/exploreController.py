@@ -17,11 +17,11 @@ class ExploreController:
 
             try:
                 value = int(choice)
-                if (value == 0):
+                if (value == 1):
                     clear()
                     write("You return to town to rest")
                     break
-                if (value == 1):
+                if (value == 2):
                     clear()
                     enemy = Character("Goblin", 10, 0)
                     battleController = BattleEventController(self.character, enemy)

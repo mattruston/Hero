@@ -15,11 +15,11 @@ class BattleEventController:
 
             try:
                 value = int(choice)
-                if (value == 0):
+                if (value == 1):
                     clear()
                     write("In a panic you run from the enemy")
                     break
-                if (value == 1):
+                if (value == 2):
                     clear()
                     self.character.attack(self.enemy)
             except:
@@ -29,7 +29,7 @@ class BattleEventController:
                 return
 
             self.enemyTurn()
-
+            
             if self.checkEnd():
                 return
 
