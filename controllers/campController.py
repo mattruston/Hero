@@ -33,6 +33,11 @@ class CampController:
 
     def tent(self, character):
         clear()
-        health = int(character.health*.25)
+        health = int(character.maxHealth*.25)
+
+        # Make sure you dont heal above max health
+        if health + character.health > character.maxHealth:
+            health = character.maxHealth - character.health
+
         write("You have a good nights rest and heal for " + str(health))
         character.heal(health)

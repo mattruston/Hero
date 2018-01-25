@@ -3,9 +3,10 @@ from weapons.weapon import Weapon
 from armor.armor import Armor
 
 class Character:
-    def __init__(self, name, hp, strength, weapon = Weapon("Short Sword"), armor = Armor("Cloth Armor"), bonuses = [], inventory = [], statuses = []):
+    def __init__(self, name, hp, maxHealth, strength, weapon = Weapon("Short Sword"), armor = Armor("Cloth Armor"), bonuses = [], inventory = [], statuses = []):
         self.name = name
         self.health = hp
+        self.maxHealth = maxHealth
         self.strength = strength
         self.weapon = weapon
         self.armor = armor
@@ -24,6 +25,7 @@ class Character:
 
     def heal(self, health):
         self.health += health
+        write(self.name + " has " + str(self.health) + "hp")
 
     def defend(self, damage):
         return self.armor.defend(damage)

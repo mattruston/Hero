@@ -5,7 +5,7 @@ from controllers.exploreController import ExploreController
 
 class GameController:
     def __init__(self):
-        self.character = Character("The hero", 15, 0)
+        self.character = Character("The hero", 15, 15, 0)
         self.day = 0
         self.timeOfDay = 0
         self.camp = CampController()
