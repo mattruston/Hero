@@ -9,16 +9,12 @@ class NPC:
         while True:
             options = ["Say 'hi'", "Walk away"]
             choice = showOptions("What do you do?", options)
-            try:
-                value = int(choice)
-                if (value == 0):
-                    write(self.name + ": Hello there stranger.")
-                    continue
-                elif (value == 1):
-                    clear()
-                    return
-            except:
-                pass
+            if (choice == "0"):
+                write(self.name + ": Hello there stranger.")
+                continue
+            elif (choice =="1"):
+                clear()
+                return
 
             # Special commands
             specialCommands(choice)
