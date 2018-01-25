@@ -12,6 +12,9 @@ def sleep(t):
 def clear():
     os.system('cls' if os.name == 'nt' else 'clear')
 
+def kill():
+    sys.exit()
+
 def write(string):
     for c in string:
         sleep(0.05)
@@ -23,7 +26,6 @@ def write(string):
 
     sleep(0.5)
     print("")
-
 
 def showOptions(intro, choices) -> int:
     write(intro)
@@ -41,11 +43,22 @@ def display(string):
     sleep(0.5)
     print("")
 
+def characterInfo(character):
+    infoCard = f"""
+    ------
+    | () | {character.name}
+    |(  )| HP: {character.health}  STR: {character.strength}
+    ------
+    Weapon: {character.weapon.name}
+    Armor : {character.armor.name}
+    """
+    print(infoCard)
+
 def specialCommands(inpt):
     if inpt == "quit" or inpt == "q":
         clear()
         display("The darkness engulfs your fire and the world around you fades to black.")
-        return -1
+        kill()
     elif inpt == "help" or inpt == "h":
         display("\nHero's Diary:\n-------------\nTaking an action:\n\tYou can input a choice by submitting the correct action number\nExiting the game:\n\tYou can quit the game at anytime by typing 'quit' or 'q'\n")
     else:

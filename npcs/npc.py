@@ -5,7 +5,7 @@ class NPC:
         self.name = name
         self.option = option
     
-    def run(self):
+    def run(self, character):
         while True:
             options = ["Say 'hi'", "Walk away"]
             choice = showOptions("What do you do?", options)
@@ -21,6 +21,4 @@ class NPC:
                 pass
 
             # Special commands
-            flag = specialCommands(choice)
-            if flag == -1:
-                break
+            specialCommands(choice)

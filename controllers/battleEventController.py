@@ -10,20 +10,15 @@ class BattleEventController:
         write("As you wonder through the woods, a creature cloaked in shadow appears.")
         while True:
             choices = ["Run", "Attack"]
-
             choice = showOptions("What do you do?", choices)
 
-            try:
-                value = int(choice)
-                if (value == 1):
-                    clear()
-                    write("In a panic you run from the enemy")
-                    break
-                if (value == 2):
-                    clear()
-                    self.character.attack(self.enemy)
-            except:
-                pass
+            if (choice == "1"):
+                clear()
+                write("In a panic you run from the enemy")
+                break
+            if (choice == "2"):
+                clear()
+                self.character.attack(self.enemy)
 
             if self.checkEnd():
                 return

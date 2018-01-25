@@ -8,30 +8,26 @@ class GameController:
         self.character = Character("The hero", 15, 0)
         self.day = 0
         self.timeOfDay = 0
-        self.camp = CampController(self.character)
+        self.camp = CampController()
 
     def playGame(self):
+        characterInfo(self.character)
         while True:
             choices = ["Explore into the wilderness",
                 "Walk around town"]
 
             choice = showOptions("What do you do?", choices)
-            try:
-                value = int(choice)
-                if (value == 1): # go explore
-                    clear()
-                    exploreController = ExploreController(self.timeOfDay, self.character)
-                    exploreController.explore()
-                    continue
-                elif (value == 2): # Go to camp
-                    clear()
-                    self.camp.showCamp()
-                    continue
-            except:
-                pass
+
+            if (choice == "1"): # go explore
+                clear()
+                exploreController = ExploreController(self.timeOfDay, self.character)
+                exploreController.explore()
+                continue
+            elif (choice == "2"): # Go to camp
+                clear()
+                self.camp.showCamp(self.character)
+                continue
 
             # Special commands
-            flag = specialCommands(choice)
-            if flag == -1:
-                break
+            specialCommands(choice)
                 

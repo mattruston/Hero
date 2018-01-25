@@ -12,23 +12,19 @@ class ExploreController:
         #get random event based off depth and time
         while True:
             choices = ["Return to town", "Battle"]
-
             choice = showOptions("What do you do?", choices)
+            if (choice == "1"):
+                clear()
+                write("You return to town to rest")
+                break
+            if (choice == "2"):
+                clear()
+                enemy = Character("Goblin", 10, 0)
+                battleController = BattleEventController(self.character, enemy)
+                battleController.start()
+                break
 
-            try:
-                value = int(choice)
-                if (value == 1):
-                    clear()
-                    write("You return to town to rest")
-                    break
-                if (value == 2):
-                    clear()
-                    enemy = Character("Goblin", 10, 0)
-                    battleController = BattleEventController(self.character, enemy)
-                    battleController.start()
-                    break
-            except:
-                pass
+            specialCommands(choice)
 
 
 

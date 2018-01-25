@@ -3,7 +3,7 @@ from weapons.weapon import Weapon
 from armor.armor import Armor
 
 class Character:
-    def __init__(self, name, hp, strength, weapon = Weapon(), armor = Armor(), bonuses = [], inventory = [], statuses = []):
+    def __init__(self, name, hp, strength, weapon = Weapon("Short Sword"), armor = Armor("Cloth Armor"), bonuses = [], inventory = [], statuses = []):
         self.name = name
         self.health = hp
         self.strength = strength
