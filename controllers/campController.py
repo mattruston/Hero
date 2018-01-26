@@ -20,7 +20,7 @@ class CampController:
                 npcChoice = choice - 2
 
                 # User chose resting
-                if (choice == 0):
+                if (choice == 1):
                     self.tent(character)
                     continue
 
@@ -28,6 +28,7 @@ class CampController:
                 elif (npcChoice >= 0 and npcChoice < len(self.people)):
                     self.people[npcChoice].run(character) # Run the persons interaction
                     continue
+                    
                 # Last option, we return to camp
                 elif (npcChoice == len(self.people)):
                     clear()

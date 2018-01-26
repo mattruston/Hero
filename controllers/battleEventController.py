@@ -21,7 +21,7 @@ class BattleEventController:
 
             if self.checkEnd():
                 return
-                
+
             self.enemyTurn()
 
     def playerTurn(self):
@@ -50,6 +50,7 @@ class BattleEventController:
                 clear()
                 if self.useItem():
                     break
+                continue
 
             # handle special commands
             flag = specialCommands(choice)
@@ -89,4 +90,5 @@ class BattleEventController:
         if self.character.health <= 0:
             write("The darkness engulfs your fire and the world around you fades to black.")
             #TODO: death logic
+            kill()
             return True
