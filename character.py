@@ -32,3 +32,4 @@ class Character:
 
     def attack(self, target):
         self.weapon.attack(self, target)
+        
