@@ -19,7 +19,7 @@ class ExploreController:
                 break
             if (choice == "2"):
                 clear()
-                enemy = Character("Goblin", 10, 0)
+                enemy = Character("Goblin", 10, 10, 0)
                 battleController = BattleEventController(self.character, enemy)
                 battleController.start()
                 break
