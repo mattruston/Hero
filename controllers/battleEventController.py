@@ -1,5 +1,6 @@
 from utils import *
 from character import Character
+from bonuses.bonus import *
 
 class BattleEventController:
     def __init__(self, character, enemy):
@@ -8,27 +9,41 @@ class BattleEventController:
 
     def start(self):
         write("As you wonder through the woods, a creature cloaked in shadow appears.")
+
+        #fight loop
         while True:
-            choices = ["Run", "Attack"]
+            self.playerTurn()
+            self.enemyTurn()
+
+    def playerTurn(self):
+        while True:
+            if self.checkEnd():
+                return
+
+            #Tick through bonuses
+            for bonus in self.character.bonuses:
+                bonus.act("PlayerStart", self.character)
+
+            choices = ["Run", "Attack", "Test bonus"]
             choice = showOptions("What do you do?", choices)
 
             if (choice == "1"):
                 clear()
                 write("In a panic you run from the enemy")
-                break
+                return
+
             if (choice == "2"):
                 clear()
                 self.character.attack(self.enemy)
+                break
 
-            if self.checkEnd():
-                return
-
-            self.enemyTurn()
-            
-            if self.checkEnd():
-                return
+            # handle special commands
+            flag = specialCommands(choice)
 
     def enemyTurn(self):
+        if self.checkEnd():
+            return
+
         self.enemy.attack(self.character)
 
     def checkEnd(self):

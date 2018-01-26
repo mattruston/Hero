@@ -2,10 +2,11 @@ from utils import *
 from character import Character
 from controllers.campController import CampController
 from controllers.exploreController import ExploreController
+from bonuses.bonus import *
 
 class GameController:
     def __init__(self):
-        self.character = Character("The hero", 15, 15, 0)
+        self.character = Character("The hero", 15, 15, 0, bonuses = [HealingAmulet()])
         self.day = 0
         self.timeOfDay = 0
         self.camp = CampController()
