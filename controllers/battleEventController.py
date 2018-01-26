@@ -13,15 +13,19 @@ class BattleEventController:
 
         #fight loop
         while True:
+            if self.checkEnd():
+                return
+
             if self.playerTurn() == -1:
                 return
 
+            if self.checkEnd():
+                return
+                
             self.enemyTurn()
 
     def playerTurn(self):
         while True:
-            if self.checkEnd():
-                return
 
             #Tick through bonuses
             for bonus in self.character.bonuses:
@@ -74,9 +78,6 @@ class BattleEventController:
             specialCommands(choice)
 
     def enemyTurn(self):
-        if self.checkEnd():
-            return
-
         self.enemy.attack(self.character)
 
     def checkEnd(self):
