@@ -11,11 +11,12 @@ class BattleEventController:
         while True:
             choices = ["Run", "Attack"]
             choice = showOptions("What do you do?", choices)
-            if (choice == "0"):
+
+            if (choice == "1"):
                 clear()
                 write("In a panic you run from the enemy")
                 break
-            if (choice == "1"):
+            if (choice == "2"):
                 clear()
                 self.character.attack(self.enemy)
 
@@ -23,7 +24,7 @@ class BattleEventController:
                 return
 
             self.enemyTurn()
-
+            
             if self.checkEnd():
                 return
 

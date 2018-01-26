@@ -17,12 +17,13 @@ class GameController:
                 "Walk around town"]
 
             choice = showOptions("What do you do?", choices)
-            if (choice == "0"): # go explore
+
+            if (choice == "1"): # go explore
                 clear()
                 exploreController = ExploreController(self.timeOfDay, self.character)
                 exploreController.explore()
                 continue
-            elif (choice == "1"): # Go to camp
+            elif (choice == "2"): # Go to camp
                 clear()
                 self.camp.showCamp(self.character)
                 continue

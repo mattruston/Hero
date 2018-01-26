@@ -1,10 +1,11 @@
 from utils import *
 from npcs.npc import NPC
+from npcs.oldman import Oldman
 
 class CampController:
     def __init__(self, people = []):
         self.people = people
-        self.addPerson(NPC('Old Man', 'Talk to the old man'))
+        self.addPerson(Oldman('Old Man', 'Talk to the old man'))
 
     def showCamp(self, character):
         while True:
@@ -14,9 +15,10 @@ class CampController:
 
             options = [x.option for x in self.people] + ["Go to your tent."]
 
-            choice = showOptions("What do you do?", options)
+            choice = showOptions("You walk into your camp. What do you do?", options)
+
             if (choice.isdigit()):
-                choice = int(choice)
+                choice = int(choice) - 1
                 if (choice >= 0 and choice < len(self.people)):
                     self.people[choice].run(character) # Run the persons interaction
                     continue

@@ -13,11 +13,11 @@ class ExploreController:
         while True:
             choices = ["Return to town", "Battle"]
             choice = showOptions("What do you do?", choices)
-            if (choice == "0"):
+            if (choice == "1"):
                 clear()
                 write("You return to town to rest")
                 break
-            if (choice == "1"):
+            if (choice == "2"):
                 clear()
                 enemy = Character("Goblin", 10, 0)
                 battleController = BattleEventController(self.character, enemy)
