@@ -1,50 +1,61 @@
 from npcs.npc import NPC
 from utils import *
+from random import randrange
 
 class Oldman(NPC):
     def __init__(self, name, option):
         super().__init__(name, option)
-        self.actions = {}
+        self.options = [(0,"Say 'hi'"), (1,"Walk away")]
 
     def run(self, character):
-        options = [(0,"Say 'hi'"), (1,"Walk away")]
-        while True:
-            clear()
-            optionID = dialogueOptions("You walk up to the old man. What do you do?", options)
-            if (optionID == 0):
-                firstDialogue(character)
-                return
-            elif (optionID == 1):
-                clear()
-                return
-
-# NEED A NEW SHOW OPTIONS THAT CAN TAKE A DICTIONARY WITH ID'S
-# This way we can remove options from the list and have them complete all of the interacts
-def firstDialogue(character):
-    clear()
-    write("\nOldman: Hello there stranger.\n")
-    options = [(0,"Ask: 'what are you doing in my camp?'"), (1, "Ask: 'who are you?"), (2,"Walk away")]
-    while True:
-        optionID = dialogueOptions("How do you respond?", options)
+        clear()
+        optionID = dialogueOptions("You walk up to the old man. What do you do?", self.options)
         if (optionID == 0):
-            secondDialogueOption1(character)
+            self.firstDialogue(character)
             return
         elif (optionID == 1):
-            secondDialogueOption2(character)
-            index = indexOfOption(1, options)
-            options.pop(index)
-            continue
-        else:
             clear()
             return
-    
-def secondDialogueOption1(character):
-    clear()
-    write("Oldman: Minding my own business! Unlike you.")
-    write("The Old man walks away from you in a huff.\n")
-    return
 
-def secondDialogueOption2(character):
-    clear()
-    write("Oldman: I'm just a simple old man.\n")
-    return
+    def firstDialogue(self, character):
+        clear()
+        write("\nOld man: Hello there stranger.\n")
+        options = [(1, "Ask: 'who are you?"), (0,"Ask: 'what are you doing in my camp?'"), (2,"Walk away")]
+        while True:
+            optionID = dialogueOptions("How do you respond?", options)
+            if (optionID == 0):
+                self.secondDialogueOption1(character)
+                return
+            elif (optionID == 1):
+                self.secondDialogueOption2(character)
+                index = indexOfOption(1, options)
+                options.pop(index)
+                options.insert(len(self.options) - 2, (3, "Ask: 'can you help me?"))
+                continue
+            elif (optionID == 3):
+                self.adviceDialogue(character)
+                index = indexOfOption(3, options)
+                options.pop(index)
+                continue
+            else:
+                clear()
+                return
+    
+    def secondDialogueOption1(self, character):
+        clear()
+        write("Old man: Your camp! Sonny back in my day these woods were only ruled by the tree sprites. Nasty little buggers but at least they were more polite than you!")
+        write("The Old man walks away from you in a huff.\n")
+        return
+
+    def secondDialogueOption2(self, character):
+        clear()
+        write("Old man: I'm just a simple old man.\n")
+        return
+
+    def adviceDialogue(self, character):
+        clear()
+        advice = ["You can get help by typing 'help or 'h' at any time.", "You can end the day and heal by visiting your tent."]
+        tipIndex = randrange(len(advice))
+        write("Old man: " + advice[tipIndex])
+        clear()
+
