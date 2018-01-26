@@ -1,17 +1,18 @@
 from utils import *
 from npcs.npc import NPC
+from npcs.oldman import Oldman
 
 class CampController:
     def __init__(self, people = []):
         self.people = people
-        self.addPerson(NPC('Old Man', 'Talk to the old man'))
+        self.addPerson(Oldman('Old Man', 'Talk to the old man'))
 
     def showCamp(self, character):
         while True:
 
             options = ["Go to your tent."] + [x.option for x in self.people] + ["Go back"]
 
-            choice = showOptions("What do you do?", options)
+            choice = showOptions("You walk into your camp. What do you do?", options)
 
             if (choice.isdigit()):
                 choice = int(choice)
