@@ -2,14 +2,16 @@ from utils import *
 from character import Character
 from bonuses.bonus import *
 from items.item import *
+from controllers.eventController import EventController
 
-class BattleEventController:
+class BattleEventController(EventController):
     def __init__(self, character, enemy):
-        self.character = character
+        super().__init__(character)
         self.enemy = enemy
 
-    def start(self):
-        write("As you wonder through the woods, a creature cloaked in shadow appears.")
+    def run(self):
+        write("As you approach the figure, it removes its hood.")
+        write("Its a goblin, and it lunges towards you!")
 
         #fight loop
         while True:

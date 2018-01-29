@@ -9,9 +9,10 @@ class ExploreController:
         self.character = character
         
     def explore(self):
+        write("As you set off into the surrounding forest, you see a cloaked figure in the trees.")
         #get random event based off depth and time
         while True:
-            choices = ["Return to town", "Battle"]
+            choices = ["Return to town", "Approach the figure"]
             choice = showOptions("What do you do?", choices)
             if (choice == "1"):
                 clear()
@@ -21,7 +22,7 @@ class ExploreController:
                 clear()
                 enemy = Character("Goblin", 10, 10, 0)
                 battleController = BattleEventController(self.character, enemy)
-                battleController.start()
+                battleController.run()
                 break
 
             specialCommands(choice)
