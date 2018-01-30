@@ -5,7 +5,7 @@ from npcs.oldman import Oldman
 class CampController:
     def __init__(self, people = []):
         self.people = people
-        self.addPerson(Oldman('Old Man', 'Talk to the old man'))
+        self.addPerson(Oldman())
 
     def showCamp(self, character):
         while True:

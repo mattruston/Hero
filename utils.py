@@ -50,7 +50,7 @@ def dialogueOptions(intro, choices):
         sleep(0.3)
         if(choice.isdigit()):
             index = int(choice) - 1
-            if (index >=0 and index < len(choices)):
+            if (index >= 0 and index < len(choices)):
                 return choices[index][0]
         
         specialCommands(choice)

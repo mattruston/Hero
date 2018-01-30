@@ -6,12 +6,10 @@ from controllers.eventController import EventController
 
 class BattleEventController(EventController):
     def __init__(self, character, enemy):
-        super().__init__(character)
+        super().__init__(character, "You must fight to survive!")
         self.enemy = enemy
 
     def run(self):
-        write("As you approach the figure, it removes its hood.")
-        write("Its a goblin, and it lunges towards you!")
 
         #fight loop
         while True:

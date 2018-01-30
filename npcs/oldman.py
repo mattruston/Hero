@@ -3,13 +3,13 @@ from utils import *
 from random import randrange
 
 class Oldman(NPC):
-    def __init__(self, name, option):
-        super().__init__(name, option)
-        self.options = [(0,"Say 'hi'"), (1,"Walk away")]
+    def __init__(self):
+        super().__init__("Old man", "Talk to the old man")
 
     def run(self, character):
+        options = [(0,"Say 'hi'"), (1,"Walk away")]
         clear()
-        optionID = dialogueOptions("You walk up to the old man. What do you do?", self.options)
+        optionID = dialogueOptions("You walk up to the old man. What do you do?", options)
         if (optionID == 0):
             self.firstDialogue(character)
             return
@@ -55,7 +55,6 @@ class Oldman(NPC):
     def adviceDialogue(self, character):
         clear()
         advice = ["You can get help by typing 'help or 'h' at any time.", "You can end the day and heal by visiting your tent."]
-        tipIndex = randrange(len(advice))
         write("Old man: " + advice[tipIndex])
         clear()
 

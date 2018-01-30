@@ -14,7 +14,8 @@ class GameController:
         self.camp = CampController()
 
     def playGame(self):
-        characterInfo(self.character)
+        #characterInfo(self.character)
+        clear()
         while True:
             choices = ["Explore into the wilderness",
                 "Walk around town"]
