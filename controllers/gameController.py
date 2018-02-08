@@ -8,7 +8,7 @@ from items.item import *
 class GameController:
     def __init__(self):
         self.character = Character("The hero", 15, 15, 0)#, bonuses = [HealingAmulet()])
-        self.character.inventory = [SmallPotion(1)]
+        self.character.giveItem("SmallPotion")
         self.day = 0
         self.timeOfDay = 0
         self.camp = CampController()

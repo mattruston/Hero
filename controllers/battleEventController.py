@@ -32,25 +32,25 @@ class BattleEventController(EventController):
                 bonus.act("PlayerStart", self.character)
 
             #TODO Add inventory dynamically
-            choices = ["Run", "Attack", "Inventory"]
+            choices = ["Attack", "Inventory", "Run"]
             choice = showOptions("What do you do?", choices)
 
             if (choice == "1"):
                 clear()
-                write("In a panic you run from the enemy")
-                #For now returning -1 to know that we need to quit
-                return -1
-
-            if (choice == "2"):
-                clear()
                 self.character.attack(self.enemy)
                 break
 
-            if (choice == "3"):
+            if (choice == "2"):
                 clear()
                 if self.useItem():
                     break
                 continue
+
+            if (choice == "3"):
+                clear()
+                write("In a panic you run from the enemy")
+                #For now returning -1 to know that we need to quit
+                return -1
 
             # handle special commands
             flag = specialCommands(choice)
@@ -58,25 +58,7 @@ class BattleEventController(EventController):
         return 0
 
     def useItem(self):
-        while True:
-            choices = []
-            for item in self.character.inventory:
-                choices += [item.name + "           " + str(item.quantity) + "x"]
-            choices += ["Go back"]
-
-            choice = showOptions("Use an item?", choices)
-
-            if choice.isdigit():
-                value = int(choice) - 1
-                
-                if value >= 0 and value < len(self.character.inventory):
-                    self.character.inventory[value].use(self.character)
-                    return True
-
-                elif value == len(choices) - 1:
-                    return False
-
-            specialCommands(choice)
+        return self.character.openInventory()
 
     def enemyTurn(self):
         self.enemy.attack(self.character)
