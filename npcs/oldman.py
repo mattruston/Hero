@@ -1,6 +1,6 @@
 from npcs.npc import NPC
 from utils import *
-from random import randrange
+from random import randint
 
 class Oldman(NPC):
     def __init__(self):
@@ -30,7 +30,7 @@ class Oldman(NPC):
                 self.secondDialogueOption2(character)
                 index = indexOfOption(1, options)
                 options.pop(index)
-                options.insert(len(self.options) - 2, (3, "Ask: 'can you help me?"))
+                options.insert(len(options) - 2, (3, "Ask: 'can you help me?"))
                 continue
             elif (optionID == 3):
                 self.adviceDialogue(character)
@@ -55,6 +55,7 @@ class Oldman(NPC):
     def adviceDialogue(self, character):
         clear()
         advice = ["You can get help by typing 'help or 'h' at any time.", "You can end the day and heal by visiting your tent."]
+        tipIndex = randint(0, len(advice))
         write("Old man: " + advice[tipIndex])
         clear()
 
